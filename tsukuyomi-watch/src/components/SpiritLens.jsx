@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 import { processAstroImage } from '../utils/imageProcessing.js';
+import DojoDashboard from './DojoDashboard.jsx';
 
 export default function SpiritLens() {
   const [originalImage, setOriginalImage] = useState(null);
@@ -8,7 +9,6 @@ export default function SpiritLens() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [fileDetails, setFileDetails] = useState(null);
-
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
@@ -52,6 +52,7 @@ export default function SpiritLens() {
         const result = processAstroImage(img, {
           contrast: 1.25,
           brightness: 8,
+          denoise: true,
           sharpen: true,
         });
         setProcessedImage(result);
@@ -120,7 +121,7 @@ export default function SpiritLens() {
         <div className="file-info-badge">
           <span>Target: <strong>{fileDetails.name}</strong> ({fileDetails.size})</span>
           <span className="truthfulness-note">
-            * Conventional denoising & contrast stretch (strictly deterministic, non-generative).
+            * Conventional light smoothing, contrast stretch & sharpening (strictly deterministic, non-generative).
           </span>
         </div>
       )}
@@ -130,7 +131,7 @@ export default function SpiritLens() {
         {processedImage ? (
           <div className="slider-box">
             <ReactCompareSlider
-              itemOne={<ReactCompareSliderImage src={originalImage} alt="Original Capture" />}
+              itemOne={<ReactCompareSliderImage src={originalImage} alt="Original Raw" />}
               itemTwo={<ReactCompareSliderImage src={processedImage} alt="Enhanced Result" />}
               style={{ width: '100%', maxHeight: '520px', borderRadius: '8px' }}
             />
@@ -152,6 +153,11 @@ export default function SpiritLens() {
           </div>
         )}
       </div>
+
+      {/* NEW: Dojo Object Finder (appears after the photo is enhanced) */}
+      {processedImage && originalImage && (
+        <DojoDashboard originalImage={originalImage} processedImage={processedImage} />
+      )}
     </div>
   );
 }
