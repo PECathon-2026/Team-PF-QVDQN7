@@ -239,3 +239,126 @@ button {
   font-size: 0.75rem;
   color: var(--text-muted);
 } 
+
+/* Watchtower & Score Styling */
+.watchtower-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.watchtower-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.score-card {
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.score-header h3 {
+  color: var(--accent-gold);
+  letter-spacing: 1.5px;
+  font-size: 1.1rem;
+}
+
+.forecast-time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.score-badge {
+  border: 3px solid;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-primary);
+}
+
+.score-number {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.score-max {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.score-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.score-details h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+
+.score-disclaimer {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.metric-box {
+  background-color: var(--bg-card);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.metric-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}

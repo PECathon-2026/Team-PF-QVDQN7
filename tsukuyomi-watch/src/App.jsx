@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AppHeader from './components/AppHeader.jsx';
 import LocationSearch from './components/LocationSearch.jsx';
+import Watchtower from './components/Watchtower.jsx';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('watchtower');
@@ -37,13 +38,8 @@ export default function App() {
       {/* Viewport for Active Tab */}
       <main>
         {activeTab === 'watchtower' && (
-          <div style={{ padding: '2rem', background: 'var(--bg-card)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-            <h2 style={{ color: 'var(--accent-gold)' }}>Watchtower (Stargazing Spot Finder)</h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-              Weather forecast, Night Honor Score, and candidate viewing spots will appear here.
-            </p>
-          </div>
-        )}
+  <Watchtower location={selectedLocation} />
+)}
 
         {activeTab === 'scroll' && (
           <div style={{ padding: '2rem', background: 'var(--bg-card)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
