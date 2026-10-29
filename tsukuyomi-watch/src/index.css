@@ -362,3 +362,56 @@ button {
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+
+/* Map Panel Styling */
+.map-panel-container {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.map-header h4 {
+  color: var(--accent-gold);
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+.map-status {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.map-wrapper {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-disclaimer {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Ensure Leaflet controls match our dark theme container */
+.leaflet-container {
+  background-color: #1a1a24 !important;
+  font-family: inherit !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #ffffff;
+  color: #111111;
+  border-radius: 6px;
+}

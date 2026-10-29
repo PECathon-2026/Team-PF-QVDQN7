@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getStargazingWeather } from '../services/weather.js';
 import { calculateNightHonorScore } from '../utils/score.js';
+import MapPanel from './MapPanel.jsx';
 
 export default function Watchtower({ location }) {
   const [weather, setWeather] = useState(null);
@@ -114,6 +115,10 @@ export default function Watchtower({ location }) {
           <span className="metric-note">{weather.precipitationProbability > 30 ? 'Rain/precipitation likely' : 'Low rain chance'}</span>
         </div>
       </div>
+
+      {/* Interactive Celestial Map */}
+      <MapPanel location={location} />
     </div>
   );
 }
+
