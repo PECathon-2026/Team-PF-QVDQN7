@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AppHeader from './components/AppHeader.jsx';
+import LocationSearch from './components/LocationSearch.jsx';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('watchtower');
@@ -17,15 +18,20 @@ export default function App() {
     <div className="app-container">
       <AppHeader activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Global Location Bar */}
-      <div className="location-banner">
-        <div className="location-indicator">
-          <span>📍</span>
-          <strong>{selectedLocation.name}, {selectedLocation.country}</strong>
+      {/* Global Location Bar & Search */}
+      <div className="location-banner" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '1rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div className="location-indicator">
+            <span>📍</span>
+            <strong>{selectedLocation.name}, {selectedLocation.country}</strong>
+          </div>
+          <span className="location-coords">
+            {selectedLocation.latitude.toFixed(4)}°N, {selectedLocation.longitude.toFixed(4)}°E ({selectedLocation.timezone})
+          </span>
         </div>
-        <span className="location-coords">
-          {selectedLocation.latitude.toFixed(4)}°N, {selectedLocation.longitude.toFixed(4)}°E ({selectedLocation.timezone})
-        </span>
+
+        {/* Search Bar */}
+        <LocationSearch onSelectLocation={setSelectedLocation} />
       </div>
 
       {/* Viewport for Active Tab */}
