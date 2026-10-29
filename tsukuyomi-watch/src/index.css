@@ -415,3 +415,56 @@ button {
   color: #111111;
   border-radius: 6px;
 }
+
+/* --- LEAFLET MAP PANEL FIXES --- */
+.map-panel-container {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.map-header h4 {
+  color: var(--accent-gold, #d4af37);
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.map-status {
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.map-disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-muted, #8a8a9e);
+  line-height: 1.4;
+  margin-top: 0.75rem;
+}
+
+.custom-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 15, 0.85);
+  border: 1px solid var(--accent-gold, #d4af37);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  z-index: 1;
+}
