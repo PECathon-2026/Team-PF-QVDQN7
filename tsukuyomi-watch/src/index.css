@@ -468,3 +468,685 @@ button {
   width: 100% !important;
   z-index: 1;
 }
+
+/* --- CELESTIAL SCROLL & MOON STYLES --- */
+.celestial-scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.moon-banner-card {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--accent-gold, #d4af37);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.moon-icon {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.moon-details {
+  flex: 1;
+}
+
+.moon-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.moon-header h3 {
+  margin: 0;
+  color: var(--accent-gold, #d4af37);
+  font-size: 1.25rem;
+}
+
+.moon-tag {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-gold, #d4af37);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.moon-illumination {
+  margin: 0.4rem 0 0.8rem 0;
+  font-size: 0.95rem;
+  color: var(--text-main, #e0e0e0);
+}
+
+.moon-ephemeris-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.ephemeris-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #2a2a38);
+}
+
+.ephemeris-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted, #8a8a9e);
+  text-transform: uppercase;
+}
+
+.ephemeris-value {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 0.2rem;
+}
+
+.moon-disclaimer {
+  font-size: 0.75rem;
+  color: var(--text-muted, #8a8a9e);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+.event-filters-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-color, #2a2a38);
+  padding-bottom: 0.75rem;
+}
+
+.event-filters-bar h4 {
+  margin: 0;
+  color: var(--accent-gold, #d4af37);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: var(--bg-card, #12121a);
+  color: var(--text-muted, #8a8a9e);
+  border: 1px solid var(--border-color, #2a2a38);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-red, #c92a2a);
+  color: #fff;
+  border-color: var(--accent-red, #c92a2a);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.event-card {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.event-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-type-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(201, 42, 42, 0.2);
+  color: #ff8787;
+  border: 1px solid rgba(201, 42, 42, 0.4);
+  text-transform: uppercase;
+}
+
+.event-date {
+  font-size: 0.75rem;
+  color: var(--accent-gold, #d4af37);
+}
+
+.event-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.event-summary {
+  font-size: 0.85rem;
+  color: var(--text-muted, #8a8a9e);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.event-viewing-tip {
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  border-radius: 4px;
+  border-left: 2px solid var(--accent-gold, #d4af37);
+  color: var(--text-main, #e0e0e0);
+  line-height: 1.3;
+}
+
+.event-footer {
+  margin-top: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+/* --- SPIRIT LENS & DOJO DASHBOARD --- */
+.spirit-lens-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.spirit-lens-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.spirit-lens-header h3 {
+  margin: 0;
+  color: var(--accent-gold, #d4af37);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+}
+
+.lens-sub {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.lens-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.spirit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid var(--border-color, #2a2a38);
+  transition: all 0.2s ease;
+}
+
+.spirit-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.spirit-btn.primary {
+  background: var(--accent-red, #c92a2a);
+  border-color: var(--accent-red, #c92a2a);
+}
+
+.spirit-btn.primary:hover:not(:disabled) {
+  background: #e03131;
+}
+
+.spirit-btn.danger {
+  background: transparent;
+  color: #ff8787;
+  border-color: rgba(201, 42, 42, 0.4);
+}
+
+.spirit-btn.danger:hover {
+  background: rgba(201, 42, 42, 0.2);
+}
+
+.spirit-error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.file-info-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #2a2a38);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.truthfulness-note {
+  color: var(--accent-gold, #d4af37);
+  font-style: italic;
+}
+
+.slider-arena {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.dropzone-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  border: 2px dashed var(--border-color, #2a2a38);
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.dropzone-placeholder:hover {
+  border-color: var(--accent-gold, #d4af37);
+}
+
+.drop-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.drop-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.drop-sub {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.single-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.preview-img {
+  max-width: 100%;
+  max-height: 480px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #2a2a38);
+}
+
+.preview-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted, #8a8a9e);
+  margin-top: 0.75rem;
+}
+
+.slider-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--accent-gold, #d4af37);
+  font-weight: 600;
+}
+
+/* --- HONOR POINTS & HEADER CLUSTER STYLES --- */
+.header-right-cluster {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.honor-badge-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--accent-gold, #d4af37);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+}
+
+.honor-icon {
+  font-size: 1.15rem;
+}
+
+.honor-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.honor-label {
+  font-size: 0.65rem;
+  color: var(--text-muted, #8a8a9e);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.honor-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold, #d4af37);
+}
+
+.event-footer-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color, #2a2a38);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.observe-action-btn {
+  background: var(--accent-red, #c92a2a);
+  color: #fff;
+  border: 1px solid var(--accent-red, #c92a2a);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.observe-action-btn:hover:not(:disabled) {
+  background: #e03131;
+}
+
+.observe-action-btn.observed {
+  background: rgba(81, 207, 102, 0.15);
+  color: #51cf66;
+  border-color: rgba(81, 207, 102, 0.4);
+  cursor: default;
+}
+
+/* --- ROCKET LAUNCHES SECTION --- */
+.launches-section-container {
+  margin-top: 2rem;
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.section-title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-title-wrap h4 {
+  margin: 0;
+  color: var(--accent-gold, #d4af37);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+
+.section-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.launches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.launch-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.launch-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.launch-agency {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-gold, #d4af37);
+  text-transform: uppercase;
+}
+
+.launch-status-pill {
+  font-size: 0.7rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: #fff;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.launch-title {
+  margin: 0;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.launch-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+  line-height: 1.4;
+}
+
+.launch-source-tag {
+  margin-top: auto;
+  font-size: 0.7rem;
+  color: var(--text-muted, #8a8a9e);
+  font-style: italic;
+}
+
+/* --- LUNAR CALENDAR & DATE STRIP STYLES --- */
+.calendar-control-card {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.calendar-header-cluster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.calendar-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cal-icon {
+  font-size: 1.5rem;
+}
+
+.cal-title {
+  margin: 0;
+  color: var(--accent-gold, #d4af37);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.cal-sub {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.cal-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lunar-date-picker {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.lunar-date-picker:focus {
+  border-color: var(--accent-gold, #d4af37);
+}
+
+.cal-today-btn {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--accent-gold, #d4af37);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cal-today-btn:hover {
+  background: var(--accent-gold, #d4af37);
+  color: #000;
+}
+
+.lunar-strip-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  overflow-x: auto;
+}
+
+.lunar-strip-item {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color, #2a2a38);
+  border-radius: 6px;
+  padding: 0.6rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 65px;
+}
+
+.lunar-strip-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-gold, #d4af37);
+}
+
+.lunar-strip-item.selected-day {
+  background: rgba(201, 42, 42, 0.2);
+  border: 1px solid var(--accent-red, #c92a2a);
+  box-shadow: 0 0 10px rgba(201, 42, 42, 0.35);
+}
+
+.strip-weekday {
+  font-size: 0.7rem;
+  color: var(--text-muted, #8a8a9e);
+  text-transform: uppercase;
+}
+
+.strip-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.strip-date {
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.strip-fraction {
+  font-size: 0.65rem;
+  color: var(--accent-gold, #d4af37);
+}

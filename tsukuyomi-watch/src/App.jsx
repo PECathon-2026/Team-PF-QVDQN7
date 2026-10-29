@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppHeader from './components/AppHeader.jsx';
 import LocationSearch from './components/LocationSearch.jsx';
 import Watchtower from './components/Watchtower.jsx';
+import CelestialScroll from './components/CelestialScroll.jsx';
+import SpiritLens from './components/SpiritLens.jsx';
+import { getHonorData, recordObservation } from './utils/honorStorage.js';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('watchtower');
@@ -15,9 +18,31 @@ export default function App() {
     timezone: 'Asia/Kolkata',
   });
 
+  // Honor Points state
+  const [honorPoints, setHonorPoints] = useState(0);
+  const [observedEvents, setObservedEvents] = useState([]);
+
+  useEffect(() => {
+    const data = getHonorData();
+    setHonorPoints(data.totalPoints);
+    setObservedEvents(data.observedEventIds);
+  }, []);
+
+  const handleObserveEvent = (eventId, pointValue) => {
+    const res = recordObservation(eventId, pointValue);
+    if (res.success) {
+      setHonorPoints(res.totalPoints);
+      setObservedEvents(res.observedEventIds);
+    }
+  };
+
   return (
     <div className="app-container">
-      <AppHeader activeTab={activeTab} setActiveTab={setActiveTab} />
+      <AppHeader
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        honorPoints={honorPoints}
+      />
 
       {/* Global Location Bar & Search */}
       <div className="location-banner" style={{ flexDirection: 'column', alignItems: 'stretch', gap: '1rem' }}>
@@ -38,25 +63,19 @@ export default function App() {
       {/* Viewport for Active Tab */}
       <main>
         {activeTab === 'watchtower' && (
-  <Watchtower location={selectedLocation} />
-)}
+          <Watchtower location={selectedLocation} />
+        )}
 
         {activeTab === 'scroll' && (
-          <div style={{ padding: '2rem', background: 'var(--bg-card)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-            <h2 style={{ color: 'var(--accent-gold)' }}>Celestial Scroll (Space Events & Moon)</h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-              Moon phases, moonrise times, meteor showers, and launch feeds will appear here.
-            </p>
-          </div>
+          <CelestialScroll
+            location={selectedLocation}
+            observedEventIds={observedEvents}
+            onObserveEvent={handleObserveEvent}
+          />
         )}
 
         {activeTab === 'spirit-lens' && (
-          <div style={{ padding: '2rem', background: 'var(--bg-card)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-            <h2 style={{ color: 'var(--accent-gold)' }}>Spirit Lens & Dojo Dashboard</h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-              Browser-side image processing, noise reduction, and before/after comparison slider will appear here.
-            </p>
-          </div>
+          <SpiritLens />
         )}
       </main>
     </div>
