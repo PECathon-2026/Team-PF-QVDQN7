@@ -1150,3 +1150,207 @@ button {
   font-size: 0.65rem;
   color: var(--accent-gold, #d4af37);
 }
+
+/* ==========================================================================
+   NASA SkyView Zenith Portal Styles
+   ========================================================================== */
+.zenith-trigger-strip {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color, #2a2a38);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.zenith-btn {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--accent-gold, #d4af37);
+  border: 1px solid var(--accent-gold, #d4af37);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.zenith-btn:hover {
+  background: var(--accent-gold, #d4af37);
+  color: #000;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.zenith-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted, #8a8a9e);
+  font-style: italic;
+}
+
+/* Modal Overlay */
+.zenith-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.zenith-modal-content {
+  background: var(--bg-card, #12121a);
+  border: 1px solid var(--accent-gold, #d4af37);
+  border-radius: 8px;
+  max-width: 520px;
+  width: 100%;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInZenith 0.2s ease-out;
+}
+
+@keyframes fadeInZenith {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zenith-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color, #2a2a38);
+  padding-bottom: 0.75rem;
+}
+
+.zenith-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #8a8a9e);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.zenith-close-btn:hover {
+  color: #fff;
+}
+
+.zenith-modal-desc {
+  font-size: 0.85rem;
+  color: var(--text-main, #e0e0e0);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.zenith-coords-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-color, #2a2a38);
+  padding: 0.85rem;
+  border-radius: 6px;
+}
+
+.zenith-coord-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.coord-label {
+  font-size: 0.65rem;
+  color: var(--text-muted, #8a8a9e);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.coord-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-gold, #d4af37);
+  font-family: monospace;
+}
+
+.coord-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted, #8a8a9e);
+}
+
+.zenith-survey-info {
+  font-size: 0.8rem;
+  color: var(--text-muted, #8a8a9e);
+  display: flex;
+  justify-content: space-between;
+  border-left: 2px solid var(--accent-red, #c92a2a);
+  padding-left: 0.75rem;
+  background: rgba(201, 42, 42, 0.08);
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.zenith-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.zenith-query-link {
+  flex: 1;
+  text-align: center;
+  background: var(--accent-red, #c92a2a);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zenith-query-link:hover {
+  background: #e03131;
+}
+
+.zenith-dismiss-btn {
+  background: transparent;
+  color: var(--text-muted, #8a8a9e);
+  border: 1px solid var(--border-color, #2a2a38);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.zenith-dismiss-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.zenith-disclaimer {
+  font-size: 0.7rem;
+  color: var(--text-muted, #8a8a9e);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.3;
+}
