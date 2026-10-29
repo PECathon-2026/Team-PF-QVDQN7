@@ -17,7 +17,7 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
     return `${year}-${month}-${day}`;
   });
 
-  // Convert selected string to a valid Date object set at noon to prevent timezone date-rollover
+  // Convert selected string to Date object set at noon to prevent timezone date-rollover
   const activeDate = useMemo(() => {
     if (!selectedDateStr) return new Date();
     const [y, m, d] = selectedDateStr.split('-').map(Number);
@@ -26,7 +26,12 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
 
   // Recalculates dynamically when coordinates, timezone, or selected date change
   const moon = useMemo(() => {
-    return getMoonDetails(activeDate, location.latitude, location.longitude, location.timezone);
+    return getMoonDetails(
+      activeDate,
+      location.latitude,
+      location.longitude,
+      location.timezone
+    );
   }, [activeDate, location.latitude, location.longitude, location.timezone]);
 
   // Generate a mini 7-day strip preview around the chosen date
@@ -36,12 +41,16 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
     for (let offset = -3; offset <= 3; offset++) {
       const d = new Date(base);
       d.setDate(base.getDate() + offset);
-      const mInfo = getMoonDetails(d, location.latitude, location.longitude, location.timezone);
+      const mInfo = getMoonDetails(
+        d,
+        location.latitude,
+        location.longitude,
+        location.timezone
+      );
       const y = d.getFullYear();
       const m = String(d.getMonth() + 1).padStart(2, '0');
       const dayNum = String(d.getDate()).padStart(2, '0');
       const dateKey = `${y}-${m}-${dayNum}`;
-
       days.push({
         dateKey,
         dayLabel: d.toLocaleDateString([], { weekday: 'short' }),
@@ -68,9 +77,14 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
     };
   }, []);
 
+  // Filter AND Sort events in Ascending Order by peakDate
   const filteredEvents = useMemo(() => {
-    if (filter === 'all') return CELESTIAL_EVENTS;
-    return CELESTIAL_EVENTS.filter((ev) => ev.type === filter);
+    const list = filter === 'all' 
+      ? [...CELESTIAL_EVENTS] 
+      : CELESTIAL_EVENTS.filter((ev) => ev.type === filter);
+
+    // Sort ascending by chronological date
+    return list.sort((a, b) => new Date(a.peakDate) - new Date(b.peakDate));
   }, [filter]);
 
   const handleResetToday = () => {
@@ -88,6 +102,12 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
     year: 'numeric',
   });
 
+  // Normalized today's date at midnight for fair date comparison
+  const todayMidnight = useMemo(() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  }, []);
+
   return (
     <div className="celestial-scroll-container">
       {/* Date Picker & Lunar Calendar Toolbar */}
@@ -100,7 +120,6 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
               <p className="cal-sub">Select any date to project historical or future moon phases</p>
             </div>
           </div>
-
           <div className="cal-input-group">
             <input
               type="date"
@@ -145,11 +164,9 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
             </h3>
             <span className="moon-tag">{moon.fraction}% ILLUMINATED</span>
           </div>
-
           <p style={{ margin: '0.2rem 0 0.8rem 0', color: 'var(--accent-gold)', fontSize: '0.9rem' }}>
             {moon.jpName} • <span style={{ color: '#fff' }}>{formattedSelectedDisplay}</span>
           </p>
-
           <div className="moon-ephemeris-grid">
             <div className="ephemeris-item">
               <span className="ephemeris-label">Moonrise</span>
@@ -170,7 +187,6 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
               </span>
             </div>
           </div>
-
           <p className="moon-disclaimer">
             * Ephemeris calculated locally via SunCalc for <strong>{location.name}, {location.country}</strong> ({location.latitude.toFixed(2)}°, {location.longitude.toFixed(2)}°) on <strong>{selectedDateStr}</strong>.
           </p>
@@ -202,10 +218,14 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
         </div>
       </div>
 
-      {/* Curated Events List */}
+      {/* Curated Events List (Chronologically Sorted) */}
       <div className="events-grid">
         {filteredEvents.map((event) => {
           const isObserved = observedEventIds.includes(event.id);
+
+          // Check if peakDate is in the future compared to today's date
+          const eventTime = new Date(event.peakDate).getTime();
+          const isFuture = eventTime > todayMidnight;
 
           return (
             <div key={event.id} className="event-card">
@@ -218,16 +238,22 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
               <div className="event-viewing-tip">
                 <strong>Observation Note:</strong> {event.visibilityTip}
               </div>
-
               <div className="event-footer-action">
                 <span className="event-source">Source: {event.source}</span>
-                <button
-                  className={`observe-action-btn ${isObserved ? 'observed' : ''}`}
-                  disabled={isObserved}
-                  onClick={() => onObserveEvent(event.id, event.honorValue || 10)}
-                >
-                  {isObserved ? '✓ Recorded in Dojo' : '⚔️ I Observed This (+10 Pts)'}
-                </button>
+
+                {isFuture ? (
+                  <button className="observe-action-btn future" disabled>
+                    ⏳ Coming Soon
+                  </button>
+                ) : (
+                  <button
+                    className={`observe-action-btn ${isObserved ? 'observed' : ''}`}
+                    disabled={isObserved}
+                    onClick={() => onObserveEvent(event.id, event.honorValue || 10)}
+                  >
+                    {isObserved ? '✓ Recorded in Dojo' : '⚔️ I Observed This (+10 Pts)'}
+                  </button>
+                )}
               </div>
             </div>
           );
@@ -242,7 +268,6 @@ export default function CelestialScroll({ location, observedEventIds = [], onObs
             {launchesLoading ? 'Tracking telemetry...' : 'Global Spaceflight Manifest'}
           </span>
         </div>
-
         {launchesLoading ? (
           <p style={{ color: 'var(--text-muted)' }}>Retrieving upcoming launch trajectories...</p>
         ) : (

@@ -928,6 +928,14 @@ button {
   cursor: default;
 }
 
+.observe-action-btn.future {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted, #8a8a9e);
+  border: 1px solid var(--border-color, #2a2a38);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 /* --- ROCKET LAUNCHES SECTION --- */
 .launches-section-container {
   margin-top: 2rem;
@@ -1354,3 +1362,4 @@ button {
   font-style: italic;
   line-height: 1.3;
 }
+
