@@ -3,12 +3,13 @@ import { getStargazingWeather } from '../services/weather.js';
 import { calculateNightHonorScore } from '../utils/score.js';
 import { getLocalZenithCoordinates } from '../utils/zenith.js';
 import MapPanel from './MapPanel.jsx';
+import ViewingWindowTimeline from './ViewingWindowTimeline.jsx';
 
 export default function Watchtower({ location }) {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // Zenith Modal State
   const [isZenithOpen, setIsZenithOpen] = useState(false);
   const [zenithData, setZenithData] = useState(null);
@@ -110,6 +111,14 @@ export default function Watchtower({ location }) {
         </div>
       </div>
 
+      {/* NEW: Tonight's Best Viewing Window Timeline */}
+      {weather.hourlyTonight && weather.hourlyTonight.length > 0 && (
+        <ViewingWindowTimeline
+          hourlyTonight={weather.hourlyTonight}
+          timezone={location.timezone}
+        />
+      )}
+
       {/* Atmospheric Metrics Grid */}
       <div className="metrics-grid">
         <div className="metric-box">
@@ -140,7 +149,7 @@ export default function Watchtower({ location }) {
         </div>
       </div>
 
-      {/* Interactive Celestial Map */}
+      {/* Terrestrial Vantage Points (Leaflet Earth Map) */}
       <MapPanel location={location} />
 
       {/* NASA SkyView Zenith Portal Modal */}
@@ -160,7 +169,7 @@ export default function Watchtower({ location }) {
             </div>
 
             <p className="zenith-modal-desc">
-              By converting your geographic coordinates and local sidereal time, here is the exact deep-space equatorial field passing directly overhead right now.
+              By converting geographic coordinates and local sidereal time, here is the equatorial field passing directly overhead right now.
             </p>
 
             <div className="zenith-coords-box">
@@ -204,4 +213,3 @@ export default function Watchtower({ location }) {
     </div>
   );
 }
-
