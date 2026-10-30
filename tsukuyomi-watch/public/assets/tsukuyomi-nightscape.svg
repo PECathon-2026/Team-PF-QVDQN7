@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="620" viewBox="0 0 1800 620" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="900" y1="0" x2="900" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070B15"/>
+      <stop offset="0.58" stop-color="#101726"/>
+      <stop offset="1" stop-color="#17131B"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="0" cy="0" r="1" gradientTransform="matrix(116 0 0 116 1458 158)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF1C9"/>
+      <stop offset="0.72" stop-color="#DCC28D"/>
+      <stop offset="1" stop-color="#A77F52"/>
+    </radialGradient>
+    <radialGradient id="moonGlow" cx="0" cy="0" r="1" gradientTransform="matrix(225 0 0 225 1458 158)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D7B878" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#D7B878" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mountainFar" x1="900" y1="260" x2="900" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#263143"/>
+      <stop offset="1" stop-color="#111925"/>
+    </linearGradient>
+    <linearGradient id="mountainNear" x1="900" y1="370" x2="900" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141C2A"/>
+      <stop offset="1" stop-color="#090D16"/>
+    </linearGradient>
+    <linearGradient id="torii" x1="1300" y1="250" x2="1630" y2="505" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B84A40"/>
+      <stop offset="1" stop-color="#61242A"/>
+    </linearGradient>
+    <linearGradient id="water" x1="1450" y1="470" x2="1450" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#263345" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#090E18" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="1190" y="-70" width="540" height="500" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <pattern id="stars" width="170" height="130" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="22" r="1.2" fill="#E9D8AF" fill-opacity=".52"/>
+      <circle cx="70" cy="18" r=".8" fill="#D9E3F0" fill-opacity=".45"/>
+      <circle cx="145" cy="48" r="1" fill="#E9D8AF" fill-opacity=".38"/>
+      <circle cx="38" cy="92" r=".8" fill="#D9E3F0" fill-opacity=".35"/>
+      <circle cx="114" cy="111" r="1.1" fill="#E9D8AF" fill-opacity=".32"/>
+    </pattern>
+  </defs>
+
+  <rect width="1800" height="620" fill="url(#sky)"/>
+  <rect width="1800" height="420" fill="url(#stars)" opacity=".8"/>
+  <ellipse cx="1458" cy="164" rx="270" ry="250" fill="url(#moonGlow)"/>
+  <circle cx="1458" cy="158" r="118" fill="#D7B878" opacity=".12" filter="url(#softGlow)"/>
+  <circle cx="1458" cy="158" r="91" fill="url(#moon)"/>
+  <g opacity=".14" fill="#8B704D">
+    <circle cx="1422" cy="125" r="13"/><circle cx="1485" cy="182" r="19"/>
+    <circle cx="1468" cy="103" r="8"/><circle cx="1405" cy="185" r="6"/>
+    <path d="M1499 119c-10 8-13 18-7 27 8 4 17-2 20-10 1-7-5-14-13-17Z"/>
+  </g>
+
+  <!-- Distant Japanese mountain silhouettes -->
+  <path d="M0 392 130 320 220 354 342 274 438 348 548 292 648 365 760 276 858 352 1000 235 1118 349 1230 278 1348 356 1460 286 1570 356 1682 302 1800 370V620H0V392Z" fill="url(#mountainFar)" opacity=".82"/>
+  <path d="m845 354 155-119 137 114-91-44-49 16-41-27-47 35-35-6-29 31Z" fill="#7C8798" opacity=".16"/>
+  <path d="M0 455 170 385 292 430 410 356 542 445 666 381 784 444 932 340 1068 434 1186 366 1300 438 1418 370 1550 446 1688 385 1800 435V620H0V455Z" fill="url(#mountainNear)"/>
+  <path d="M0 498c190-38 300-8 430-35 165-35 258 22 410-2 165-26 267-3 410-28 210-37 370 17 550-5v192H0V498Z" fill="#080D16" opacity=".72"/>
+
+  <!-- A quiet red torii gate on the right, behind the interface text -->
+  <g opacity=".9" fill="url(#torii)">
+    <path d="M1360 292 1386 286 1404 518 1375 523Z"/>
+    <path d="M1558 286 1585 293 1574 523 1545 518Z"/>
+    <path d="M1308 260c100-34 270-34 365 0l-13 24c-102-25-238-25-337 0l-15-24Z"/>
+    <path d="M1280 237c111-52 311-52 421 0l-18 23c-115-40-270-40-386 0l-17-23Z"/>
+    <path d="M1378 348c58 13 132 13 192 0l-4 17c-58 14-126 14-185 0l-3-17Z"/>
+    <path d="M1370 514c66-14 142-14 210 0l-3 15c-70-12-133-12-204 0l-3-15Z" opacity=".8"/>
+  </g>
+  <g opacity=".23" stroke="#D6B777" stroke-width="2">
+    <path d="M1400 536c37 6 73 7 112 2"/><path d="M1382 553c53 8 105 8 156 1"/>
+    <path d="M1365 573c72 9 137 10 205 1"/>
+  </g>
+
+  <!-- Ink-wash shoreline and restrained seigaiha-like water curves -->
+  <path d="M0 530c170-30 275 11 430-6 151-16 260-9 390 4 170 17 296-15 430-11 203 6 337 32 550 2v101H0V530Z" fill="url(#water)"/>
+  <g stroke="#B99B69" stroke-opacity=".14" stroke-width="2">
+    <path d="M0 548c56-26 112-26 168 0s112 26 168 0 112-26 168 0 112 26 168 0 112-26 168 0"/>
+    <path d="M0 570c56-26 112-26 168 0s112 26 168 0 112-26 168 0 112 26 168 0 112-26 168 0"/>
+    <path d="M830 548c56-26 112-26 168 0s112 26 168 0 112-26 168 0 112 26 168 0 112-26 168 0"/>
+    <path d="M830 572c56-26 112-26 168 0s112 26 168 0 112-26 168 0 112 26 168 0 112-26 168 0"/>
+  </g>
+
+  <!-- Fine cherry-blossom branch framing the upper-left edge -->
+  <g stroke="#49313A" stroke-width="7" stroke-linecap="round" opacity=".88">
+    <path d="M-20 46c118 10 150 78 217 95 69 18 114-6 178 16"/>
+    <path d="M84 76c-3-33 8-50 30-72M162 115c19-31 44-45 78-50M250 132c10-31 30-51 61-65M316 150c28-23 56-29 91-25"/>
+  </g>
+  <g fill="#9D4E58" opacity=".72">
+    <g transform="translate(90 55)"><ellipse cy="-12" rx="7" ry="13"/><ellipse cy="12" rx="7" ry="13"/><ellipse cx="-12" rx="13" ry="7"/><ellipse cx="12" rx="13" ry="7"/><circle r="4" fill="#D5B06D"/></g>
+    <g transform="translate(170 111) scale(.82)"><ellipse cy="-12" rx="7" ry="13"/><ellipse cy="12" rx="7" ry="13"/><ellipse cx="-12" rx="13" ry="7"/><ellipse cx="12" rx="13" ry="7"/><circle r="4" fill="#D5B06D"/></g>
+    <g transform="translate(270 80) scale(.9)"><ellipse cy="-12" rx="7" ry="13"/><ellipse cy="12" rx="7" ry="13"/><ellipse cx="-12" rx="13" ry="7"/><ellipse cx="12" rx="13" ry="7"/><circle r="4" fill="#D5B06D"/></g>
+    <g transform="translate(355 126) scale(.7)"><ellipse cy="-12" rx="7" ry="13"/><ellipse cy="12" rx="7" ry="13"/><ellipse cx="-12" rx="13" ry="7"/><ellipse cx="12" rx="13" ry="7"/><circle r="4" fill="#D5B06D"/></g>
+  </g>
+  <g fill="#D7A4A0" opacity=".45">
+    <circle cx="35" cy="122" r="4"/><circle cx="205" cy="42" r="3"/><circle cx="310" cy="184" r="3"/>
+    <circle cx="420" cy="116" r="2.5"/><circle cx="520" cy="82" r="2"/><circle cx="1160" cy="96" r="2"/>
+    <circle cx="1240" cy="170" r="2.5"/><circle cx="1690" cy="115" r="2"/>
+  </g>
+
+  <!-- Subtle vignette to keep text legible over the illustration -->
+  <rect width="1800" height="620" fill="url(#sky)" opacity=".12"/>
+  <path d="M0 0h1800v620H0z" stroke="#D6B777" stroke-opacity=".08" stroke-width="2"/>
+</svg>
