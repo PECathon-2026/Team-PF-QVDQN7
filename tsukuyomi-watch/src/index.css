@@ -1271,3 +1271,23 @@ body::before {
   font-size: 0.85rem;
   color: var(--text-muted);
 }
+
+
+/* FIX: Keep location search results above dashboard cards */
+.location-banner {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+
+/* Keep the search and its dropdown in the foreground */
+.location-search-box {
+  position: relative;
+  z-index: 101;
+}
+
+.results-dropdown {
+  position: absolute;
+  z-index: 102;
+}
+
